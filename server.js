@@ -1,5 +1,5 @@
 // Server dependecies
-import express from "express";
+const express = require('express')
 
 // Define our express app and prisma orm
 const app = express();
