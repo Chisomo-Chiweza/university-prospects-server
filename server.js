@@ -1,9 +1,7 @@
 // Server dependecies
 import express from "express";
-import { PrismaClient } from '@prisma/client';
 
 // Define our express app and prisma orm
-const prisma = new PrismaClient()
 const app = express();
 
 // Home
