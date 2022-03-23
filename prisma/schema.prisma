@@ -1,11 +1,68 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-generator client {
-  provider = "prisma-client-js"
-}
+// Schema.prisma
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+model University {
+
+    id    Int    @id @default(autoincrement())
+    title String
+    faculties Faculty[]
+    
+}
+
+model Faculty {
+
+    id         Int         @id @default(autoincrement())
+    title      String
+    university University? @relation(fields: [universityId], references: [id])
+    programs Program[]
+    universityId Int
+
+}
+
+model Program {
+
+    id           Int    @id @default(autoincrement())
+    title        String
+    faculty Faculty? @relation(fields: [facultyId], references: [id])
+    facultyId Int
+    requirement Requirements?
+}
+
+model Requirements {
+
+    id      Int @id @default(autoincrement())
+    program Program? @relation(fields: [programId], references: [id])
+    programId Int
+    possibleCombinations PossibleCombinations[]
+
+}
+
+model PossibleCombinations {
+
+    id            Int      @id @default(autoincrement())
+    subjects    Subjects[]
+    subjectId Int
+    minimum_grade Int
+    required      String
+    requirements Requirements[]
+
+}
+
+model Subjects {
+
+    id         Int    @id @default(autoincrement())
+    possibleCombinations PossibleCombinations? @relation(fields: [combinationId], references: [id])
+    combinationId Int
+    title      String
+    discipline String
+    curriculum String
+
 }
