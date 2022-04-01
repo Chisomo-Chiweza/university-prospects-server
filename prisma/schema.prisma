@@ -9,37 +9,39 @@ generator client {
     provider = "prisma-client-js"
 }
 
-model University {
+model Universities {
 
     id    Int    @id @default(autoincrement())
-    title String
-    faculties Faculty[]
+    code String
+    name String
+    faculties Faculties[]
     
 }
 
-model Faculty {
+model Faculties {
 
     id         Int         @id @default(autoincrement())
-    title      String
-    university University? @relation(fields: [universityId], references: [id])
-    programs Program[]
+    name     String
+    university Universities? @relation(fields: [universityId], references: [id])
+    programs Programmes[]
     universityId Int
 
 }
 
-model Program {
+model Programmes {
 
     id           Int    @id @default(autoincrement())
     title        String
-    faculty Faculty? @relation(fields: [facultyId], references: [id])
+    faculty Faculties? @relation(fields: [facultyId], references: [id])
     facultyId Int
     requirement Requirements?
+	
 }
 
 model Requirements {
 
     id      Int @id @default(autoincrement())
-    program Program? @relation(fields: [programId], references: [id])
+    program Programmes? @relation(fields: [programId], references: [id])
     programId Int
     possibleCombinations PossibleCombinations[]
 
