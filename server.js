@@ -41,6 +41,18 @@ app.get('/universities', async (request, resource) => {
     resource.send(universities);
 })
 
+// Get all faculties
+app.get('/faculties', async (request, resource) => {
+    const faculties = await prisma.faculties.findMany();
+    resource.send(faculties);
+})
+
+// Get all programmes
+app.get('/programmes', async (request, resource) => {
+    const programmes = await prisma.programmes.findMany();
+    resource.send(programmes);
+})
+
 app.listen(process.env.PORT || 3001, () => {
     console.log("Server is running on port 3001");
 })
