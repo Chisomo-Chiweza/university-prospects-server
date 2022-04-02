@@ -38,7 +38,7 @@ app.get("/", cors(), (request, resource) => {
 // Get all universities
 app.get('/universities', async (request, resource) => {
     const universities = await prisma.universities.findMany();
-    request.json(universities);
+    resource.send(universities);
 })
 
 app.listen(process.env.PORT || 3001, () => {
