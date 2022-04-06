@@ -35,22 +35,24 @@ app.get("/", cors(), (request, resource) => {
     resource.send("University Prospects API");
 })
 
-// Get all universities
-app.get('/universities', async (request, resource) => {
+app.get("/universities", cors(), (request, resource) => {
     const universities = await prisma.universities.findMany();
-    resource.send(universities);
+    resource.send(universities)
 })
 
-// Get all faculties
-app.get('/faculties', async (request, resource) => {
+app.get("/faculties", cors(), (request, resource) => {
     const faculties = await prisma.faculties.findMany();
-    resource.send(faculties);
+    resource.send(faculties)
 })
 
-// Get all programmes
-app.get('/programmes', async (request, resource) => {
-    const programmes = await prisma.programmes.findMany();
-    resource.send(programmes);
+app.get("/curriculums", cors(), (request, resource) => {
+    const curriculums = await prisma.curriculum.findMany();
+    resource.send(curriculums)
+})
+
+app.get("/subjects", cors(), (request, resource) => {
+    const subjects = await prisma.subject.findMany();
+    resource.send(subjects)
 })
 
 app.listen(process.env.PORT || 3001, () => {

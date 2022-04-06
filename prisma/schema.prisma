@@ -34,37 +34,24 @@ model Programmes {
     title        String
     faculty Faculties? @relation(fields: [facultyId], references: [id])
     facultyId Int
-    requirement Requirements?
-	
+    
 }
 
-model Requirements {
-
-    id      Int @id @default(autoincrement())
-    program Programmes? @relation(fields: [programId], references: [id])
-    programId Int
-    possibleCombinations PossibleCombinations[]
-
-}
-
-model PossibleCombinations {
-
-    id            Int      @id @default(autoincrement())
-    subjects    Subjects[]
-    subjectId Int
-    minimum_grade Int
-    required      String
-    requirements Requirements[]
-
-}
-
-model Subjects {
+model Subject {
 
     id         Int    @id @default(autoincrement())
-    possibleCombinations PossibleCombinations? @relation(fields: [combinationId], references: [id])
-    combinationId Int
     title      String
     discipline String
-    curriculum String
+    grade Int
+    curriculum Curriculum? @relation(fields: [curriculumid], references: [id])
+    curriculumid Int 
+
+}
+
+model Curriculum {
+
+    id Int @id @default(autoincrement())
+    name String
+    subjects Subject[]
 
 }
