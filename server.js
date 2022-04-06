@@ -31,26 +31,26 @@ app.use(cors({
 
 // Define the API routes
 // Home
-app.get("/", cors(), (request, resource) => {
+app.get("/", cors(), async (request, resource) => {
     resource.send("University Prospects API");
 })
 
-app.get("/universities", cors(), (request, resource) => {
+app.get("/universities", cors(), async (request, resource) => {
     const universities = await prisma.universities.findMany();
     resource.send(universities)
 })
 
-app.get("/faculties", cors(), (request, resource) => {
+app.get("/faculties", cors(), async (request, resource) => {
     const faculties = await prisma.faculties.findMany();
     resource.send(faculties)
 })
 
-app.get("/curriculums", cors(), (request, resource) => {
+app.get("/curriculums", cors(), async (request, resource) => {
     const curriculums = await prisma.curriculum.findMany();
     resource.send(curriculums)
 })
 
-app.get("/subjects", cors(), (request, resource) => {
+app.get("/subjects", cors(), async (request, resource) => {
     const subjects = await prisma.subject.findMany();
     resource.send(subjects)
 })
