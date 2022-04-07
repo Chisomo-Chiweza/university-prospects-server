@@ -51,10 +51,11 @@ app.get("/curriculums", cors(), async (request, resource) => {
 })
 
 app.get("/subjects:curriculumid", cors(), async (request, resource) => {
+
     const subjects = await prisma.subject.findUnique({   
         
         where: {
-            curriculumId: request.params.curriculumid
+            curriculumId: parseInt(request.params.curriculumid)
         }
         
     });
