@@ -56,7 +56,7 @@ app.get("/subjects:curriculumid", cors(), async (request, resource) => {
 
         where: {
 
-            id: parseInt(request.params.curriculumid)
+            id: request.params.curriculumid
 
         }, 
 
