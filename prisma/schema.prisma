@@ -23,18 +23,8 @@ model Faculties {
     id         Int         @id @default(autoincrement())
     name     String
     university Universities? @relation(fields: [universityId], references: [id])
-    programs Programmes[]
     universityId Int
 
-}
-
-model Programmes {
-
-    id           Int    @id @default(autoincrement())
-    title        String
-    faculty Faculties? @relation(fields: [facultyId], references: [id])
-    facultyId Int
-    
 }
 
 model Subject {
