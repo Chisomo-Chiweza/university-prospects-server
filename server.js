@@ -50,9 +50,16 @@ app.get("/curriculums", cors(), async (request, resource) => {
     resource.send(curriculums)
 })
 
-app.get("/subjects", cors(), async (request, resource) => {
-    const subjects = await prisma.subject.findMany();
+app.get("/subjects:curriculumid", cors(), async (request, resource) => {
+    const subjects = await prisma.subject.findUnique({   
+        
+        where: {
+            curriculumId: request.params.curriculumid
+        }
+        
+    });
     resource.send(subjects)
+    
 })
 
 app.listen(process.env.PORT || 3001, () => {
