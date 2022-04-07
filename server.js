@@ -52,15 +52,17 @@ app.get("/curriculums", cors(), async (request, resource) => {
 
 app.get("/subjects:curriculumid", cors(), async (request, resource) => {
 
-    const subjects = await prisma.subject.findUnique({   
-        
+    const subjects = await prisma.subject.findMany({
+
         where: {
-            curriculumId: parseInt(request.params.curriculumid)
+            curriculum: {
+                id: parseInt(request.params.curriculumid)
+            }
         }
         
     });
     resource.send(subjects)
-    
+
 })
 
 app.listen(process.env.PORT || 3001, () => {
