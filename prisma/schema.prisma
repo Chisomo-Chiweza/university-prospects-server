@@ -29,6 +29,14 @@ model Faculties {
 
 }
 
+model Curriculum {
+
+    id Int @id @default(autoincrement())
+    name String
+    subjects Subject[]
+
+}
+
 model Subject {
 
     id         Int    @id @default(autoincrement())
@@ -36,8 +44,17 @@ model Subject {
     discipline String
     grade Int
     curriculum Curriculum? @relation(fields: [curriculumid], references: [id])
-    curriculumid Int 
+    curriculumid Int
+    requirement Requirement[] 
 
+}
+
+model Grade {
+  
+    id Int @id @default(autoincrement())
+    grade Int
+    requirements Requirement[]
+  
 }
 
 model Programme {
@@ -49,20 +66,21 @@ model Programme {
   university Universities? @relation(fields: [universityid], references: [id])
   facultyid Int
   universityid Int
+  requirements Requirement[]
 
 }
 
-model Grade {
-  
-    id Int @id @default(autoincrement())
-    grade Int
-  
-}
+model Requirement {
 
-model Curriculum {
-
-    id Int @id @default(autoincrement())
-    name String
-    subjects Subject[]
+  id Int @id @default(autoincrement())
+  programme Programme? @relation(fields: [programmeId], references: [id])
+  programmeId Int
+  subject Subject? @relation(fields: [subjectId], references: [id])
+  subjectId Int
+  grade Grade? @relation(fields: [gradeId], references: [id])
+  gradeId Int
 
 }
+
+
+

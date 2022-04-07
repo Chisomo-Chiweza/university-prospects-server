@@ -55,6 +55,16 @@ app.get("/subjects", cors(), async (request, resource) => {
     resource.send(subjects)
 })
 
+app.get("/programmes", cors(), async (request, resource) => {
+    const programmes = await prisma.programme.findMany();
+    resource.send(programmes)
+})
+
+app.get("/requirements", cors(), async (request, resource) => {
+    const requirements = await prisma.requirement.findMany();
+    resource.send(requirements)
+})
+
 
 // Start the server
 app.listen(process.env.PORT || 3001, () => {
