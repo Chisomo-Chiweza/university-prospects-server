@@ -15,6 +15,7 @@ model Universities {
     code String
     name String
     faculties Faculties[]
+    programmes Programme[]
     
 }
 
@@ -24,6 +25,7 @@ model Faculties {
     name     String
     university Universities? @relation(fields: [universityId], references: [id])
     universityId Int
+    programmes  Programme[]
 
 }
 
@@ -36,6 +38,25 @@ model Subject {
     curriculum Curriculum? @relation(fields: [curriculumid], references: [id])
     curriculumid Int 
 
+}
+
+model Programme {
+
+  id Int @id @default(autoincrement())
+  title String
+  description String
+  faculty Faculties? @relation(fields: [facultyid], references: [id])
+  university Universities? @relation(fields: [universityid], references: [id])
+  facultyid Int
+  universityid Int
+
+}
+
+model Grade {
+  
+    id Int @id @default(autoincrement())
+    grade Int
+  
 }
 
 model Curriculum {
