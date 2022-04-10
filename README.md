@@ -19,16 +19,7 @@ Clone repository to your local machine and run the following commands using your
 
 Visit the server hosted on heroku over at [https://university-prospects.herokuapp.com/](https://university-prospects.herokuapp.com/)
 
-### To view and manually modify the database records
 
-You can view  and modify the database using Prisma by running the following command in your terminal:
-
-```bash
-    npx prisma studio
-```
-This will open Prisma Studio in your web browser and look like this:
-
-![Screenshot from 2022-04-03 15-21-15](https://user-images.githubusercontent.com/64413744/161430318-2e358886-ac12-47d9-8357-f34527383c48.png)
 
 
 
