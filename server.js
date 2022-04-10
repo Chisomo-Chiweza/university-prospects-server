@@ -45,6 +45,11 @@ app.get("/faculties", cors(), async (request, resource) => {
     resource.send(faculties)
 })
 
+app.get("/programmes", cors(), async (request, resource) => {
+    const programmes = await prisma.programme.findMany();
+    resource.send(programmes)
+})
+
 app.get("/curriculums", cors(), async (request, resource) => {
     const curriculums = await prisma.curriculum.findMany();
     resource.send(curriculums)
@@ -54,17 +59,6 @@ app.get("/subjects", cors(), async (request, resource) => {
     const subjects = await prisma.subject.findMany();
     resource.send(subjects)
 })
-
-app.get("/programmes", cors(), async (request, resource) => {
-    const programmes = await prisma.programme.findMany();
-    resource.send(programmes)
-})
-
-app.get("/requirements", cors(), async (request, resource) => {
-    const requirements = await prisma.requirement.findMany();
-    resource.send(requirements)
-})
-
 
 // Start the server
 app.listen(process.env.PORT || 3001, () => {
