@@ -36,12 +36,12 @@ app.get("/", cors(), async (request, resource) => {
 })
 
 app.get("/universities", cors(), async (request, resource) => {
-    const universities = await prisma.universities.findMany();
+    const universities = await prisma.university.findMany();
     resource.send(universities)
 })
 
 app.get("/faculties", cors(), async (request, resource) => {
-    const faculties = await prisma.faculties.findMany();
+    const faculties = await prisma.faculty.findMany();
     resource.send(faculties)
 })
 
