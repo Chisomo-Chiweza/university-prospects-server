@@ -18,7 +18,13 @@ Clone repository to your local machine and run the following commands using your
 ### To view the API's live endpoints
 
 Visit the server hosted on heroku over at [https://university-prospects.herokuapp.com/](https://university-prospects.herokuapp.com/)
+The following data can be viewed at the following endpoints:
 
+1. **Universities** - [https://university-prospects.herokuapp.com/universities](https://university-prospects.herokuapp.com/universities)
+2. **Faculties** - [https://university-prospects.herokuapp.com/faculties](https://university-prospects.herokuapp.com/faculties)
+3. **Programmes** - [https://university-prospects.herokuapp.com/programmes](https://university-prospects.herokuapp.com/programmes)
+4. **Curriculums** - [https://university-prospects.herokuapp.com/curriculums](https://university-prospects.herokuapp.com/curriculums)
+5. **Subjects** - [https://university-prospects.herokuapp.com/subjects](https://university-prospects.herokuapp.com/subjects)
 
 
 
