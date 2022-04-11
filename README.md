@@ -23,8 +23,10 @@ The following data can be viewed at the following endpoints:
 1. **Universities** - [https://university-prospects.herokuapp.com/universities](https://university-prospects.herokuapp.com/universities)
 2. **Faculties** - [https://university-prospects.herokuapp.com/faculties](https://university-prospects.herokuapp.com/faculties)
 3. **Programmes** - [https://university-prospects.herokuapp.com/programmes](https://university-prospects.herokuapp.com/programmes)
-4. **Curriculums** - [https://university-prospects.herokuapp.com/curriculums](https://university-prospects.herokuapp.com/curriculums)
-5. **Subjects** - [https://university-prospects.herokuapp.com/subjects](https://university-prospects.herokuapp.com/subjects)
+4. **Programmes based on facultyId** - [https://university-prospects.herokuapp.com/programmes](https://university-prospects.herokuapp.com/facultyProgrammes/:facultyId)
+5. **Curriculums** - [https://university-prospects.herokuapp.com/curriculums](https://university-prospects.herokuapp.com/curriculums)
+6. **Subjects** - [https://university-prospects.herokuapp.com/subjects](https://university-prospects.herokuapp.com/subjects)
+7. **Subjects based on curriculumId** - [https://university-prospects.herokuapp.com/programmes](https://university-prospects.herokuapp.com/curriculumSubjects/:curriculumId)
 
 
 
