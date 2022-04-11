@@ -64,7 +64,7 @@ app.get("/subjects/:subjectId", cors(), async (request, resource) => {
 
     const curriculumSubjects = await prisma.subject.findMany({
         where: {
-            curriculum: parseInt(request.params.subjectId)
+            curriculumid: parseInt(request.params.subjectId)
         }
     })
 
