@@ -60,14 +60,12 @@ app.get("/subjects", cors(), async (request, resource) => {
     resource.send(subjects)
 })
 
-app.get("/subjects/:subjectId", cors(), async (request, resource) => {
+app.get("/curriculumSubjects/:curriculumId", cors(), async (request, resource) => {
 
-    const curriculumSubjects = await prisma.subject.findMany({
+    const curriculumSubjects = await prisma.curriculum.findUnique({
 
         where: {
-            curriculum: {
-                id: request.params.subjectId
-            }
+            id: parseInt(request.params.curriculumId)
         }
 
     })
