@@ -60,6 +60,18 @@ app.get("/subjects", cors(), async (request, resource) => {
     resource.send(subjects)
 })
 
+app.get("/subjects:subjectId", cors(), async (request, resource) => {
+
+    const curriculumSubjects = await prisma.subject.findMany({
+        where: {
+            curriculum: {
+                id: request.params.subjectId
+            }
+        }
+    })
+    
+})
+
 // Start the server
 app.listen(process.env.PORT || 3001, () => {
     console.log("Server is running on port 3001");
