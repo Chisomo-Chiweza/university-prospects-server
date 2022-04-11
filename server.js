@@ -50,6 +50,22 @@ app.get("/programmes", cors(), async (request, resource) => {
     resource.send(programmes)
 })
 
+app.get("/facultyProgrammes/:facultyId", cors(), async (request, resource) => {
+
+    const programmes = await prisma.faculty.findUnique({
+
+        where: {
+            id: parseInt(request.params.facultyId)
+        },
+        select: {
+            programmes: true
+        }
+
+    })
+    resource.send(programmes)
+
+})
+
 app.get("/curriculums", cors(), async (request, resource) => {
     const curriculums = await prisma.curriculum.findMany();
     resource.send(curriculums)
@@ -60,9 +76,9 @@ app.get("/subjects", cors(), async (request, resource) => {
     resource.send(subjects)
 })
 
-app.get("/curriculum/:curriculumId", cors(), async (request, resource) => {
+app.get("/curriculumSubjects/:curriculumId", cors(), async (request, resource) => {
 
-    const curriculum = await prisma.curriculum.findUnique({
+    const subjects = await prisma.curriculum.findUnique({
 
         where: {
             id: parseInt(request.params.curriculumId)
@@ -72,7 +88,7 @@ app.get("/curriculum/:curriculumId", cors(), async (request, resource) => {
         }
 
     })
-    resource.send(curriculum)
+    resource.send(subjects)
 
 })
 
