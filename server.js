@@ -81,7 +81,7 @@ app.get("/curriculumSubjects/:curriculumId", cors(), async (request, resource) =
     const subjects = await prisma.curriculum.findUnique({
 
         where: {
-            id: parseInt(request.params.curriculumId)
+            id: parseFloat(request.params.curriculumId)
         },
         select: {
             subjects: true
